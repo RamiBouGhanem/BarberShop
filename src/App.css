@@ -1,0 +1,18 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg-image{
+    background-image: url('../public/pexels-cottonbro-3998429.jpg'); /* Specify your image path */
+    background-size: cover;  /* Ensure the image covers the entire container */
+    background-position: center;  /* Center the image */
+    background-repeat: no-repeat;  /* Prevent the image from repeating */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    position: relative; /* Allows positioning of overlay */
+}
