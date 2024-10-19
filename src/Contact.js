@@ -4,7 +4,7 @@ function Contact() {
   return (
     <div className="contact-container p-6 shadow-md w-full bg-black">
       {/* <h2 className="text-5xl font-bold text-center text-white mb-8">Contact Us</h2> */}
-      <div className="contact-info flex justify-between p-12 pb-24 text-center">
+      <div className="contact-info flex justify-between p-12 pb-24  text-center">
         <div className="hours">
           <h3 className="text-5xl font-semibold text-white mb-4">Hours</h3>
           <p className="text-gray-200 text-2xl">Tues-Fri: <span className="font-medium text-blue-500">9:00am - 6:00pm</span></p>
@@ -46,5 +46,4 @@ function Contact() {
     </div>
   );
 }
-
 export default Contact;

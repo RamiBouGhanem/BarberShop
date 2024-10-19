@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Booking() {
-  const [selectedDate, setSelectedDate] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
+  const [selectedDate, setSelectedDate] = useState("");
   const [timeSlots, setTimeSlots] = useState([]);
   const [isOffDay, setIsOffDay] = useState(false);
 
@@ -23,10 +25,9 @@ function Booking() {
 
     for (let hour = startHour; hour <= endHour; hour++) {
       for (let minutes = 0; minutes < 60; minutes += 15) {
-        // let time = `${hour}:${minutes === 0 ? '00' : minutes}`; it is an unused-declared-variable
-        let ampm = hour >= 12 ? 'pm' : 'am';
+        let ampm = hour >= 12 ? "pm" : "am";
         let adjustedHour = hour > 12 ? hour - 12 : hour;
-        slots.push(`${adjustedHour}:${minutes === 0 ? '00' : minutes}${ampm}`);
+        slots.push(`${adjustedHour}:${minutes === 0 ? "00" : minutes}${ampm}`);
       }
     }
     return slots;
@@ -39,14 +40,23 @@ function Booking() {
     setTimeSlots(slots);
   };
 
+  const handleTimeSlotClick = () => {
+    navigate('/payment'); // Navigate to Payment page when a time slot is clicked
+  };
+
   return (
-    <div className="min-h-screen bg-gray-900 flex justify-center items-center p-8">
+    <div className="h-full bg-gray-900 flex justify-center items-center p-8 pt-16 pb-28">
       <div className="bg-gray-800 w-[50%] p-10 rounded-lg shadow-2xl border border-gray-700">
-        <h2 className="text-3xl font-bold text-white text-center mb-6">Book a Reservation</h2>
+        <h2 className="text-3xl font-bold text-white text-center mb-6">
+          Book a Reservation
+        </h2>
 
         {/* Date Picker */}
         <div className="flex flex-col items-center mb-8">
-          <label htmlFor="date" className="text-lg font-semibold text-gray-300 mb-4">
+          <label
+            htmlFor="date"
+            className="text-lg font-semibold text-gray-300 mb-4"
+          >
             Pick a Date
           </label>
           <input
@@ -67,12 +77,15 @@ function Booking() {
           <div className="space-y-4">
             {timeSlots.length > 0 ? (
               <>
-                <h3 className="text-lg font-semibold text-gray-300 mb-4">Pick a Time</h3>
+                <h3 className="text-lg font-semibold text-gray-300 mb-4">
+                  Pick a Time
+                </h3>
                 <div className="grid grid-cols-4 gap-4">
                   {timeSlots.map((slot, index) => (
                     <button
                       key={index}
                       className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition shadow-lg"
+                      onClick={handleTimeSlotClick} // Handle time slot click
                     >
                       {slot}
                     </button>
@@ -80,7 +93,9 @@ function Booking() {
                 </div>
               </>
             ) : (
-              <div className="text-center text-gray-400">Please select a valid date.</div>
+              <div className="text-center text-gray-400">
+                Please select a valid date.
+              </div>
             )}
           </div>
         )}
@@ -88,5 +103,4 @@ function Booking() {
     </div>
   );
 }
-
 export default Booking;

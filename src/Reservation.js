@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Reservation() {
   const [selectedBarber, setSelectedBarber] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleBarberChange = (event) => {
     setSelectedBarber(event.target.value);
+  };
+
+  const handleBook = () => {
+    navigate('/booking'); // Navigate to the Booking page
   };
 
   return (
@@ -50,7 +56,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="submit"
+                  type="button" // Change to button to avoid form submission
+                  onClick={handleBook} // Call the function to navigate
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -65,7 +72,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="submit"
+                  type="button" // Change to button to avoid form submission
+                  onClick={handleBook} // Call the function to navigate
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -80,7 +88,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="submit"
+                  type="button" // Change to button to avoid form submission
+                  onClick={handleBook} // Call the function to navigate
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -95,7 +104,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="submit"
+                  type="button" // Change to button to avoid form submission
+                  onClick={handleBook} // Call the function to navigate
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
