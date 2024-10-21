@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 function Booking() {
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState("");
   const [timeSlots, setTimeSlots] = useState([]);
   const [isOffDay, setIsOffDay] = useState(false);

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header() { // Accept navigate as a prop
   const [isTransparent, setIsTransparent] = useState(false);
-  const navigate = useNavigate(); // Initialize useNavigate here
+
+  const navigate = useNavigate();
 
   const handleScroll = () => {
     if (window.scrollY > 5) {
@@ -35,8 +36,8 @@ function Header() {
         <li className='text-gray-200 hover:text-blue-400'>GIFT CARDS</li>
       </ul>
       <button 
-        className='bg-yellow-500 text-black font-bold px-4 py-2 rounded'
-        onClick={() => navigate('/reservation')} // Navigate to Reservation page
+        className='bg-yellow-500 text-black font-bold px-4 py-2 rounded  hover:bg-yellow-600'
+        onClick={() => navigate('/Reservation')} // Navigate to Reservation page
       >
         BOOK NOW
       </button>

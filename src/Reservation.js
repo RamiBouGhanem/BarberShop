@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 
 function Reservation() {
   const [selectedBarber, setSelectedBarber] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleBarberChange = (event) => {
     setSelectedBarber(event.target.value);
   };
 
-  const handleBook = () => {
-    navigate('/booking'); // Navigate to the Booking page
+  const bookButtonClicked = () => {
+    navigate('/booking');
   };
 
   return (
@@ -28,7 +28,8 @@ function Reservation() {
             <label htmlFor="barber_name" className="text-xl font-semibold text-white mb-4">
               Who would you like to book?
             </label>
-            <select
+            {/* select is used so the user can choose one of the options*/}
+            <select     
               id="barber_name"
               className="w-[80%] bg-gray-700 border-2 border-blue-500 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-3 shadow-inner"
               value={selectedBarber}
@@ -57,7 +58,7 @@ function Reservation() {
               <div>
                 <button
                   type="button" // Change to button to avoid form submission
-                  onClick={handleBook} // Call the function to navigate
+                  onClick={bookButtonClicked} // is has to be called as a referrence 'bookButtonClicked or () => {bookButtonClicked()}
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -72,8 +73,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="button" // Change to button to avoid form submission
-                  onClick={handleBook} // Call the function to navigate
+                  type="button" 
+                  onClick={bookButtonClicked}
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -88,8 +89,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="button" // Change to button to avoid form submission
-                  onClick={handleBook} // Call the function to navigate
+                  type="button" 
+                  onClick={bookButtonClicked} 
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
@@ -104,8 +105,8 @@ function Reservation() {
               </div>
               <div>
                 <button
-                  type="button" // Change to button to avoid form submission
-                  onClick={handleBook} // Call the function to navigate
+                  type="button"
+                  onClick={() => {bookButtonClicked()}}
                   className="bg-yellow-500 text-black font-bold px-4 rounded h-12 shadow-md hover:bg-yellow-600 transition"
                 >
                   Book
